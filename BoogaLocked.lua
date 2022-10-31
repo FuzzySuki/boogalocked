@@ -1,4 +1,307 @@
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local mouse = Players.LocalPlayer:GetMouse()
+local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singularity5490/rbimgui-2/main/rbimgui-2.lua"))()
+local window = ui.new({text="🎃Builderman Hub🎃             Booga Booga 2019 [Reborn]", size=Vector2.new(500, 200)})
+local mainTab = window.new({text="main"})
+local combatTab = window.new({text="combat"})
+local autofarmTab = window.new({text="autofarm"})
+local healtab = window.new({text="auto heal"})
+local autohealToggle = healtab.new("Switch", {text="Autoheal (Ban Risk)"})
+local autohealSlider = healtab.new("Slider", {text="auto heal health", min=0, max=500, value=500})
+local infotab = window.new({text="Info"})
+infotab.new("Label", {text="Script by SukiTolle#3035"})
+infotab.new("Label", {text="GUI by SkullDegrader#2557"})
+infotab.new("Label", {text="Discord: discord.gg/Afz298enkM"})
+infotab.new("Label", {text="If you got any bug report in discord"})
+local killauraToggle = combatTab.new("Switch", {text="kill aura"})
+local breakauraToggle = mainTab.new("Switch", {text="mine aura"})
+local pickupToggle = mainTab.new("Switch", {text="auto pickup (Risky)"})
+local autofarmToggle = autofarmTab.new("Switch", {text="everything autofarm"})
+mainTab.new("Label", {text="Fly will freeze you on start when u run it (wait to freeze runout)"})
+local flyToggle = mainTab.new("Switch", {text="fly"})
+local autoPlant = autofarmTab.new("Switch", {text="auto plant fruit"})
+local autoharvest = autofarmTab.new("Switch", {text="auto harvest fruit"})
+local chosenFruit = "Bloodfruit"
+local fruits = {
+    "Bloodfruit",
+    "Sunfruit",
+    "Bluefruit",
+    "Berry",
+    "CloudBerry",
+    "Lemon",
+    "Apple",
+    "Jelly",
+    "Oddberry",
+    "Strangefruit",
+    
+}
+local autoplantDropdown = autofarmTab.new("Dropdown", {text="fruits"})
+local plantButton = autofarmTab.new("Button", {text=" plant Box "})
+plantButton.event:Connect(function()
+    for i = 1, 5 do
+        local ohString1 = "Plant Box"
+        local ohCFrame2 = CFrame.new(Players.LocalPlayer.Character.HumanoidRootPart.Position.X,Players.LocalPlayer.Character.HumanoidRootPart.Position.Y-3,Players.LocalPlayer.Character.HumanoidRootPart.Position.Z+i, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        local ohNumber3 = 0
+        game:GetService("ReplicatedStorage").Events.PlaceStructure:FireServer(ohString1, ohCFrame2, ohNumber3)
+    end
+end)
+for i,v in pairs(fruits) do
+    autoplantDropdown.new(v)
+end
+autoplantDropdown.event:Connect(function(v)
+    chosenFruit = v
+end)
 
- --Lexar v2 Obfuscator 
- --Discord Server : https://discord.gg/8zUannqYWH  
-pcall(function() function igopjitler(Mahalkosikylee31455971711639380741942675294588051)local JitlerisHandome44921152345601434031521145752559626 = (5*3-2/8+9*2/9+8*3) end function santutan(Jitlerisbes38579261987662324923930880664290327)local JitlerisHandome44921152345601434031521145752559626 = (5*3-2/8+9*2/9+8*3) end local a4545726Lexarv214737472544379Lexarv24717973946777Lexarv225277532388285Lexarv227963664552892Lexarv27032182532478Lexarontop3043321349851Lexarv245981742524985jitlerontop16398161300960jitlerigopworldwide35590554978002Igopthejitler48060633913379Jitlerishandsome4038050 = IIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1li local a4545726Lexarv214737472544379Lexarv24717973946777Lexarv225277532388285Lexarv227963664552892Lexarv27032182532478Lexarontop3043321349851Lexarv245981742524985jitlerontop16398161300960jitlerigopworldwide35590554978002Igopthejitler48060633913379Jitlerishandsome4038050 = IIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1li function igopjitler(Mahalkosikylee31455971711639380741942675294588051)local JitlerisHandome44921152345601434031521145752559626 = (5*3-2/8+9*2/9+8*3) end local JitlerisHandome44921152345601434031521145752559626 = (5*3-2/8+9*2/9+8*3) local a4545726Lexarv214737472544379Lexarv24717973946777Lexarv225277532388285Lexarv227963664552892Lexarv27032182532478Lexarontop3043321349851Lexarv245981742524985jitlerontop16398161300960jitlerigopworldwide35590554978002Igopthejitler48060633913379Jitlerishandsome4038050 = IIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1liIIiIl1ii1lli1l1i1li loadstring("\108\111\99\97\108\32\80\108\97\121\101\114\115\32\61\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\80\108\97\121\101\114\115\34\41\13\10\108\111\99\97\108\32\82\101\112\108\105\99\97\116\101\100\83\116\111\114\97\103\101\32\61\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\82\101\112\108\105\99\97\116\101\100\83\116\111\114\97\103\101\34\41\13\10\108\111\99\97\108\32\84\119\101\101\110\83\101\114\118\105\99\101\32\61\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\84\119\101\101\110\83\101\114\118\105\99\101\34\41\13\10\108\111\99\97\108\32\109\111\117\115\101\32\61\32\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\58\71\101\116\77\111\117\115\101\40\41\13\10\108\111\99\97\108\32\117\105\32\61\32\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\83\105\110\103\117\108\97\114\105\116\121\53\52\57\48\47\114\98\105\109\103\117\105\45\50\47\109\97\105\110\47\114\98\105\109\103\117\105\45\50\46\108\117\97\34\41\41\40\41\13\10\108\111\99\97\108\32\119\105\110\100\111\119\32\61\32\117\105\46\110\101\119\40\123\116\101\120\116\61\34\240\159\142\131\66\117\105\108\100\101\114\109\97\110\32\72\117\98\240\159\142\131\32\32\32\32\32\32\32\32\32\32\32\32\32\66\111\111\103\97\32\66\111\111\103\97\32\50\48\49\57\32\91\82\101\98\111\114\110\93\34\44\32\115\105\122\101\61\86\101\99\116\111\114\50\46\110\101\119\40\53\48\48\44\32\50\48\48\41\125\41\13\10\108\111\99\97\108\32\109\97\105\110\84\97\98\32\61\32\119\105\110\100\111\119\46\110\101\119\40\123\116\101\120\116\61\34\109\97\105\110\34\125\41\13\10\108\111\99\97\108\32\99\111\109\98\97\116\84\97\98\32\61\32\119\105\110\100\111\119\46\110\101\119\40\123\116\101\120\116\61\34\99\111\109\98\97\116\34\125\41\13\10\108\111\99\97\108\32\97\117\116\111\102\97\114\109\84\97\98\32\61\32\119\105\110\100\111\119\46\110\101\119\40\123\116\101\120\116\61\34\97\117\116\111\102\97\114\109\34\125\41\13\10\108\111\99\97\108\32\104\101\97\108\116\97\98\32\61\32\119\105\110\100\111\119\46\110\101\119\40\123\116\101\120\116\61\34\97\117\116\111\32\104\101\97\108\34\125\41\13\10\108\111\99\97\108\32\97\117\116\111\104\101\97\108\84\111\103\103\108\101\32\61\32\104\101\97\108\116\97\98\46\110\101\119\40\34\83\119\105\116\99\104\34\44\32\123\116\101\120\116\61\34\65\117\116\111\104\101\97\108\32\40\66\97\110\32\82\105\115\107\41\34\125\41\13\10\108\111\99\97\108\32\97\117\116\111\104\101\97\108\83\108\105\100\101\114\32\61\32\104\101\97\108\116\97\98\46\110\101\119\40\34\83\108\105\100\101\114\34\44\32\123\116\101\120\116\61\34\97\117\116\111\32\104\101\97\108\32\104\101\97\108\116\104\34\44\32\109\105\110\61\48\44\32\109\97\120\61\53\48\48\44\32\118\97\108\117\101\61\53\48\48\125\41\13\10\108\111\99\97\108\32\105\110\102\111\116\97\98\32\61\32\119\105\110\100\111\119\46\110\101\119\40\123\116\101\120\116\61\34\73\110\102\111\34\125\41\13\10\105\110\102\111\116\97\98\46\110\101\119\40\34\76\97\98\101\108\34\44\32\123\116\101\120\116\61\34\83\99\114\105\112\116\32\98\121\32\83\117\107\105\84\111\108\108\101\35\51\48\51\53\34\125\41\13\10\105\110\102\111\116\97\98\46\110\101\119\40\34\76\97\98\101\108\34\44\32\123\116\101\120\116\61\34\71\85\73\32\98\121\32\83\107\117\108\108\68\101\103\114\97\100\101\114\35\50\53\53\55\34\125\41\13\10\105\110\102\111\116\97\98\46\110\101\119\40\34\76\97\98\101\108\34\44\32\123\116\101\120\116\61\34\68\105\115\99\111\114\100\58\32\100\105\115\99\111\114\100\46\103\103\47\65\102\122\50\57\56\101\110\107\77\34\125\41\13\10\105\110\102\111\116\97\98\46\110\101\119\40\34\76\97\98\101\108\34\44\32\123\116\101\120\116\61\34\73\102\32\121\111\117\32\103\111\116\32\97\110\121\32\98\117\103\32\114\101\112\111\114\116\32\105\110\32\100\105\115\99\111\114\100\34\125\41\13\10\108\111\99\97\108\32\107\105\108\108\97\117\114\97\84\111\103\103\108\101\32\61\32\99\111\109\98\97\116\84\97\98\46\110\101\119\40\34\83\119\105\116\99\104\34\44\32\123\116\101\120\116\61\34\107\105\108\108\32\97\117\114\97\34\125\41\13\10\108\111\99\97\108\32\98\114\101\97\107\97\117\114\97\84\111\103\103\108\101\32\61\32\109\97\105\110\84\97\98\46\110\101\119\40\34\83\119\105\116\99\104\34\44\32\123\116\101\120\116\61\34\109\105\110\101\32\97\117\114\97\34\125\41\13\10\108\111\99\97\108\32\112\105\99\107\117\112\84\111\103\103\108\101\32\61\32\109\97\105\110\84\97\98\46\110\101\119\40\34\83\119\105\116\99\104\34\44\32\123\116\101\120\116\61\34\97\117\116\111\32\112\105\99\107\117\112\32\40\82\105\115\107\121\41\34\125\41\13\10\108\111\99\97\108\32\97\117\116\111\102\97\114\109\84\111\103\103\108\101\32\61\32\97\117\116\111\102\97\114\109\84\97\98\46\110\101\119\40\34\83\119\105\116\99\104\34\44\32\123\116\101\120\116\61\34\101\118\101\114\121\116\104\105\110\103\32\97\117\116\111\102\97\114\109\34\125\41\13\10\109\97\105\110\84\97\98\46\110\101\119\40\34\76\97\98\101\108\34\44\32\123\116\101\120\116\61\34\70\108\121\32\119\105\108\108\32\102\114\101\101\122\101\32\121\111\117\32\111\110\32\115\116\97\114\116\32\119\104\101\110\32\117\32\114\117\110\32\105\116\32\40\119\97\105\116\32\116\111\32\102\114\101\101\122\101\32\114\117\110\111\117\116\41\34\125\41\13\10\108\111\99\97\108\32\102\108\121\84\111\103\103\108\101\32\61\32\109\97\105\110\84\97\98\46\110\101\119\40\34\83\119\105\116\99\104\34\44\32\123\116\101\120\116\61\34\102\108\121\34\125\41\13\10\108\111\99\97\108\32\97\117\116\111\80\108\97\110\116\32\61\32\97\117\116\111\102\97\114\109\84\97\98\46\110\101\119\40\34\83\119\105\116\99\104\34\44\32\123\116\101\120\116\61\34\97\117\116\111\32\112\108\97\110\116\32\102\114\117\105\116\34\125\41\13\10\108\111\99\97\108\32\97\117\116\111\104\97\114\118\101\115\116\32\61\32\97\117\116\111\102\97\114\109\84\97\98\46\110\101\119\40\34\83\119\105\116\99\104\34\44\32\123\116\101\120\116\61\34\97\117\116\111\32\104\97\114\118\101\115\116\32\102\114\117\105\116\34\125\41\13\10\108\111\99\97\108\32\99\104\111\115\101\110\70\114\117\105\116\32\61\32\34\66\108\111\111\100\102\114\117\105\116\34\13\10\108\111\99\97\108\32\102\114\117\105\116\115\32\61\32\123\13\10\32\32\32\32\34\66\108\111\111\100\102\114\117\105\116\34\44\13\10\32\32\32\32\34\83\117\110\102\114\117\105\116\34\44\13\10\32\32\32\32\34\66\108\117\101\102\114\117\105\116\34\44\13\10\32\32\32\32\34\66\101\114\114\121\34\44\13\10\32\32\32\32\34\67\108\111\117\100\66\101\114\114\121\34\44\13\10\32\32\32\32\34\76\101\109\111\110\34\44\13\10\32\32\32\32\34\65\112\112\108\101\34\44\13\10\32\32\32\32\34\74\101\108\108\121\34\44\13\10\32\32\32\32\34\79\100\100\98\101\114\114\121\34\44\13\10\32\32\32\32\34\83\116\114\97\110\103\101\102\114\117\105\116\34\44\13\10\32\32\32\32\13\10\125\13\10\108\111\99\97\108\32\97\117\116\111\112\108\97\110\116\68\114\111\112\100\111\119\110\32\61\32\97\117\116\111\102\97\114\109\84\97\98\46\110\101\119\40\34\68\114\111\112\100\111\119\110\34\44\32\123\116\101\120\116\61\34\102\114\117\105\116\115\34\125\41\13\10\108\111\99\97\108\32\112\108\97\110\116\66\117\116\116\111\110\32\61\32\97\117\116\111\102\97\114\109\84\97\98\46\110\101\119\40\34\66\117\116\116\111\110\34\44\32\123\116\101\120\116\61\34\32\112\108\97\110\116\32\66\111\120\32\34\125\41\13\10\112\108\97\110\116\66\117\116\116\111\110\46\101\118\101\110\116\58\67\111\110\110\101\99\116\40\102\117\110\99\116\105\111\110\40\41\13\10\32\32\32\32\102\111\114\32\105\32\61\32\49\44\32\53\32\100\111\13\10\32\32\32\32\32\32\32\32\108\111\99\97\108\32\111\104\83\116\114\105\110\103\49\32\61\32\34\80\108\97\110\116\32\66\111\120\34\13\10\32\32\32\32\32\32\32\32\108\111\99\97\108\32\111\104\67\70\114\97\109\101\50\32\61\32\67\70\114\97\109\101\46\110\101\119\40\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\46\80\111\115\105\116\105\111\110\46\88\44\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\46\80\111\115\105\116\105\111\110\46\89\45\51\44\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\46\80\111\115\105\116\105\111\110\46\90\43\105\44\32\49\44\32\48\44\32\48\44\32\48\44\32\49\44\32\48\44\32\48\44\32\48\44\32\49\41\13\10\32\32\32\32\32\32\32\32\108\111\99\97\108\32\111\104\78\117\109\98\101\114\51\32\61\32\48\13\10\32\32\32\32\32\32\32\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\82\101\112\108\105\99\97\116\101\100\83\116\111\114\97\103\101\34\41\46\69\118\101\110\116\115\46\80\108\97\99\101\83\116\114\117\99\116\117\114\101\58\70\105\114\101\83\101\114\118\101\114\40\111\104\83\116\114\105\110\103\49\44\32\111\104\67\70\114\97\109\101\50\44\32\111\104\78\117\109\98\101\114\51\41\13\10\32\32\32\32\101\110\100\13\10\101\110\100\41\13\10\102\111\114\32\105\44\118\32\105\110\32\112\97\105\114\115\40\102\114\117\105\116\115\41\32\100\111\13\10\32\32\32\32\97\117\116\111\112\108\97\110\116\68\114\111\112\100\111\119\110\46\110\101\119\40\118\41\13\10\101\110\100\13\10\97\117\116\111\112\108\97\110\116\68\114\111\112\100\111\119\110\46\101\118\101\110\116\58\67\111\110\110\101\99\116\40\102\117\110\99\116\105\111\110\40\118\41\13\10\32\32\32\32\99\104\111\115\101\110\70\114\117\105\116\32\61\32\118\13\10\101\110\100\41\13\10\13\10\13\10\13\10\13\10\70\76\89\73\78\71\32\61\32\102\97\108\115\101\13\10\105\121\102\108\121\115\112\101\101\100\32\61\32\48\46\50\53\13\10\118\101\104\105\99\108\101\102\108\121\115\112\101\101\100\32\61\32\48\46\50\53\13\10\13\10\13\10\45\45\32\105\32\108\111\118\101\32\115\116\101\97\108\105\110\103\32\102\101\97\116\117\114\101\115\32\102\114\111\109\32\105\110\102\105\110\105\116\101\32\121\105\101\108\100\32\97\110\100\32\97\100\100\105\110\103\32\116\104\101\109\32\116\111\32\109\121\32\115\99\114\105\112\116\32\58\115\117\110\103\108\97\115\115\101\115\58\13\10\102\117\110\99\116\105\111\110\32\115\70\76\89\40\118\102\108\121\41\13\10\32\32\32\32\114\101\112\101\97\116\32\119\97\105\116\40\41\32\117\110\116\105\108\32\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\32\97\110\100\32\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\32\97\110\100\32\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\32\97\110\100\32\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\79\102\67\108\97\115\115\40\34\72\117\109\97\110\111\105\100\34\41\13\10\32\32\32\32\114\101\112\101\97\116\32\119\97\105\116\40\41\32\117\110\116\105\108\32\109\111\117\115\101\13\10\32\32\32\32\105\102\32\102\108\121\75\101\121\68\111\119\110\32\111\114\32\102\108\121\75\101\121\85\112\32\116\104\101\110\32\102\108\121\75\101\121\68\111\119\110\58\68\105\115\99\111\110\110\101\99\116\40\41\32\102\108\121\75\101\121\85\112\58\68\105\115\99\111\110\110\101\99\116\40\41\32\101\110\100\13\10\13\10\32\32\32\32\108\111\99\97\108\32\84\32\61\32\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\46\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116\13\10\32\32\32\32\108\111\99\97\108\32\67\79\78\84\82\79\76\32\61\32\123\70\32\61\32\48\44\32\66\32\61\32\48\44\32\76\32\61\32\48\44\32\82\32\61\32\48\44\32\81\32\61\32\48\44\32\69\32\61\32\48\125\13\10\32\32\32\32\108\111\99\97\108\32\108\67\79\78\84\82\79\76\32\61\32\123\70\32\61\32\48\44\32\66\32\61\32\48\44\32\76\32\61\32\48\44\32\82\32\61\32\48\44\32\81\32\61\32\48\44\32\69\32\61\32\48\125\13\10\32\32\32\32\108\111\99\97\108\32\83\80\69\69\68\32\61\32\48\13\10\13\10\32\32\32\32\108\111\99\97\108\32\102\117\110\99\116\105\111\110\32\70\76\89\40\41\13\10\32\32\32\32\32\32\32\32\70\76\89\73\78\71\32\61\32\116\114\117\101\13\10\32\32\32\32\32\32\32\32\108\111\99\97\108\32\66\71\32\61\32\73\110\115\116\97\110\99\101\46\110\101\119\40\39\66\111\100\121\71\121\114\111\39\41\13\10\32\32\32\32\32\32\32\32\108\111\99\97\108\32\66\86\32\61\32\73\110\115\116\97\110\99\101\46\110\101\119\40\39\66\111\100\121\86\101\108\111\99\105\116\121\39\41\13\10\32\32\32\32\32\32\32\32\66\71\46\80\32\61\32\57\101\52\13\10\32\32\32\32\32\32\32\32\66\71\46\80\97\114\101\110\116\32\61\32\84\13\10\32\32\32\32\32\32\32\32\66\86\46\80\97\114\101\110\116\32\61\32\84\13\10\32\32\32\32\32\32\32\32\66\71\46\109\97\120\84\111\114\113\117\101\32\61\32\86\101\99\116\111\114\51\46\110\101\119\40\57\101\57\44\32\57\101\57\44\32\57\101\57\41\13\10\32\32\32\32\32\32\32\32\66\71\46\99\102\114\97\109\101\32\61\32\84\46\67\70\114\97\109\101\13\10\32\32\32\32\32\32\32\32\66\86\46\118\101\108\111\99\105\116\121\32\61\32\86\101\99\116\111\114\51\46\110\101\119\40\48\44\32\48\44\32\48\41\13\10\32\32\32\32\32\32\32\32\66\86\46\109\97\120\70\111\114\99\101\32\61\32\86\101\99\116\111\114\51\46\110\101\119\40\57\101\57\44\32\57\101\57\44\32\57\101\57\41\13\10\32\32\32\32\32\32\32\32\116\97\115\107\46\115\112\97\119\110\40\102\117\110\99\116\105\111\110\40\41\13\10\32\32\32\32\32\32\32\32\32\32\32\32\114\101\112\101\97\116\32\119\97\105\116\40\41\13\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\110\111\116\32\118\102\108\121\32\97\110\100\32\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\79\102\67\108\97\115\115\40\39\72\117\109\97\110\111\105\100\39\41\32\116\104\101\110\13\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\80\108\97\121\101\114\115\46\76\111\99\97\108\80\108\97\121\101\114\46\67\104\97\114\97\99\116\101\114\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\79\102\67\108\97\115\115\40\39\72\117\109\97\110\111\105\100\39\41\46\80\108\97\116\102\111\114\109\83\116\97\110\100\32\61\32\116\114\117\101\13\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\101\110\100\13\10\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\32\105\102\32\67\79\78\84\82\79\76\46\76\32\43\32\67\79\78\84\82\79\76\46\82\32\126\61\32\48\32\111\114\32\67\79\78\84\82\79\76\46\70\32\43\32\67\79\78\84\82\79\76\46\66\32\126\61\32\48\32\111\114\32\67\79\78\84\82\79\76\46\81\32\43\32\67\79\78\84\82\79\76\46\69\32\126
+
+
+
+FLYING = false
+iyflyspeed = 0.25
+vehicleflyspeed = 0.25
+
+
+-- i love stealing features from infinite yield and adding them to my script :sunglasses:
+function sFLY(vfly)
+    repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and Players.LocalPlayer.Character.HumanoidRootPart and Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+    repeat wait() until mouse
+    if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
+
+    local T = Players.LocalPlayer.Character.HumanoidRootPart
+    local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+    local lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+    local SPEED = 0
+
+    local function FLY()
+        FLYING = true
+        local BG = Instance.new('BodyGyro')
+        local BV = Instance.new('BodyVelocity')
+        BG.P = 9e4
+        BG.Parent = T
+        BV.Parent = T
+        BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+        BG.cframe = T.CFrame
+        BV.velocity = Vector3.new(0, 0, 0)
+        BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+        task.spawn(function()
+            repeat wait()
+                if not vfly and Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+                    Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = true
+                end
+                if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0 then
+                    SPEED = 50
+                elseif not (CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0) and SPEED ~= 0 then
+                    SPEED = 0
+                end
+                if (CONTROL.L + CONTROL.R) ~= 0 or (CONTROL.F + CONTROL.B) ~= 0 or (CONTROL.Q + CONTROL.E) ~= 0 then
+                    BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (CONTROL.F + CONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(CONTROL.L + CONTROL.R, (CONTROL.F + CONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+                    lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+                elseif (CONTROL.L + CONTROL.R) == 0 and (CONTROL.F + CONTROL.B) == 0 and (CONTROL.Q + CONTROL.E) == 0 and SPEED ~= 0 then
+                    BV.velocity = ((workspace.CurrentCamera.CoordinateFrame.lookVector * (lCONTROL.F + lCONTROL.B)) + ((workspace.CurrentCamera.CoordinateFrame * CFrame.new(lCONTROL.L + lCONTROL.R, (lCONTROL.F + lCONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - workspace.CurrentCamera.CoordinateFrame.p)) * SPEED
+                else
+                    BV.velocity = Vector3.new(0, 0, 0)
+                end
+                BG.cframe = workspace.CurrentCamera.CoordinateFrame
+            until not FLYING
+            CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+            lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+            SPEED = 0
+            BG:Destroy()
+            BV:Destroy()
+            if Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+                Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid').PlatformStand = false
+            end
+        end)
+    end
+    flyKeyDown = mouse.KeyDown:Connect(function(KEY)
+        if KEY:lower() == 'w' then
+            CONTROL.F = (vfly and vehicleflyspeed or iyflyspeed)
+        elseif KEY:lower() == 's' then
+            CONTROL.B = - (vfly and vehicleflyspeed or iyflyspeed)
+        elseif KEY:lower() == 'a' then
+            CONTROL.L = - (vfly and vehicleflyspeed or iyflyspeed)
+        elseif KEY:lower() == 'd' then 
+            CONTROL.R = (vfly and vehicleflyspeed or iyflyspeed)
+        elseif QEfly and KEY:lower() == 'e' then
+            CONTROL.Q = (vfly and vehicleflyspeed or iyflyspeed)*2
+        elseif QEfly and KEY:lower() == 'q' then
+            CONTROL.E = -(vfly and vehicleflyspeed or iyflyspeed)*2
+        end
+        pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Track end)
+    end)
+    flyKeyUp = mouse.KeyUp:Connect(function(KEY)
+        if KEY:lower() == 'w' then
+            CONTROL.F = 0
+        elseif KEY:lower() == 's' then
+            CONTROL.B = 0
+        elseif KEY:lower() == 'a' then
+            CONTROL.L = 0
+        elseif KEY:lower() == 'd' then
+            CONTROL.R = 0
+        elseif KEY:lower() == 'e' then
+            CONTROL.Q = 0
+        elseif KEY:lower() == 'q' then
+            CONTROL.E = 0
+        end
+    end)
+    FLY()
+end
+
+function NOFLY()
+    FLYING = false
+    if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
+    if Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') then
+        Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+    end
+    pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Custom end)
+end
+
+flyToggle.event:Connect(function(v)
+    if v then
+        Players.LocalPlayer.Character:SetPrimaryPartCFrame(Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,32))
+        task.wait(0.01)
+        Players.LocalPlayer.Character:SetPrimaryPartCFrame(Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,0,32))
+        wait(0.5)
+        sFLY(true)
+    else
+        NOFLY()
+    end
+end)
+
+-- took this from devforums
+local function getClosest()
+    local hrp = Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position
+    local closest_distance = math.huge
+    local closestperson
+
+    for i,v in pairs(game.Players:GetPlayers()) do
+        if v.Character ~= nil and v ~= Players.LocalPlayer and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Character:FindFirstChild("Humanoid").Health > 0 then
+            local plr_pos = v.Character.HumanoidRootPart.Position
+            local plr_distance = (hrp - plr_pos).Magnitude
+    
+            if plr_distance < closest_distance then
+                closest_distance = plr_distance
+                closestperson = v
+            end
+        end
+    end
+
+    return closestperson
+end
+
+local function getClosestObject(folder)
+    local distance, part = math.huge, nil
+    local Character = Players.LocalPlayer.Character
+    if Character:FindFirstChild("HumanoidRootPart") then
+        for i,v in pairs(folder:GetChildren()) do
+            if v and not v:FindFirstChild("Humanoid") and v:FindFirstChild("Health") then
+                local HRPPosition = Character:FindFirstChild("HumanoidRootPart").Position
+                for i2,v2 in pairs(v:GetChildren()) do
+                    if v2:IsA("BasePart") then
+                        local realDistance = math.abs((HRPPosition - v2.Position).Magnitude)
+        
+                        if realDistance < distance then
+                            distance = realDistance
+                            part = v2
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return part
+end
+
+local function getClosestPickups(folder)
+    local Character = Players.LocalPlayer.Character
+    local pickups = {}
+    for i,v in pairs(folder:GetChildren()) do
+        if v:FindFirstChild("Pickup") and v:IsA("BasePart") and table.find(pickups,v) == nil and Character:FindFirstChild("HumanoidRootPart") then
+            if (Character.HumanoidRootPart.Position - v.Position).Magnitude <= 30 then
+                table.insert(pickups, v)
+            end
+        end
+    end
+    return pickups
+end
+
+while wait(0.2) do
+    local Character = Players.LocalPlayer.Character
+    if killauraToggle.on then
+        if Character:FindFirstChild("HumanoidRootPart") then
+            local closest = getClosest()
+            local hrp = Character.HumanoidRootPart.Position
+
+            -- guessing the distance tbh
+            if (hrp - closest.Character.HumanoidRootPart.Position).Magnitude <= 10 then
+                ReplicatedStorage.Events.SwingTool:FireServer(ReplicatedStorage.RelativeTime.Value, {
+                    [1] = closest.Character.HumanoidRootPart
+                })
+            end
+        end
+    end
+
+    if autohealToggle.on then
+        if Character:FindFirstChild("Humanoid") then
+            if Character.Humanoid.Health <= autohealSlider.value then
+                game:GetService("ReplicatedStorage").Events.UseBagltem:FireServer("Bloodfruit")
+            end
+        end
+    end
+
+    if breakauraToggle.on then
+        local closestPart = getClosestObject(workspace)
+        local hrp = Character.HumanoidRootPart.Position
+        
+        if (hrp - closestPart.Position).Magnitude <= 40 then
+            ReplicatedStorage.Events.SwingTool:FireServer(ReplicatedStorage.RelativeTime.Value, {
+                [1] = closestPart
+            })
+        end
+    end
+
+    if pickupToggle.on then
+        for i,v in pairs(getClosestPickups(workspace)) do
+            game:GetService("ReplicatedStorage").Events.Pickup:FireServer(v)
+        end
+    end
+    if autofarmToggle.on then
+        local part = getClosestObject(workspace)
+        local HRPPosition = Players.LocalPlayer.Character.HumanoidRootPart.Position
+        local realDistance = math.round(math.abs((HRPPosition - part.Position).Magnitude))
+    
+        ReplicatedStorage.Events.SwingTool:FireServer(ReplicatedStorage.RelativeTime.Value, {
+            [1] = part
+        })
+        for i,v in pairs(getClosestPickups(workspace)) do
+            game:GetService("ReplicatedStorage").Events.Pickup:FireServer(v)
+        end
+        wait(0.1)
+        if part.Position.Y <= 30 then
+            TweenService:Create(Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(realDistance/10, Enum.EasingStyle.Linear), {CFrame=part.CFrame+Vector3.new(0,part.Size.Y,0)}):Play()
+            task.wait(realDistance/10)
+        end
+    end
+
+    if autoPlant.on then
+        local hrp = Character.HumanoidRootPart.Position
+        for i,v in pairs(workspace.Deployables:GetChildren()) do
+            if v.Name == "Plant Box" then
+                local part = v:FindFirstChildOfClass("Part")
+                if (hrp - part.Position).Magnitude <= 10 then
+                    game:GetService("ReplicatedStorage").Events.lnteractStructure:FireServer(v, chosenFruit)
+                end
+            end
+        end
+    end
+
+    if autoharvest.on then
+        local hrp = Character.HumanoidRootPart.Position
+        for i,v in pairs(workspace:GetChildren()) do
+            if v.Name == chosenFruit.." Bush" and (hrp - v:FindFirstChildOfClass("Part").Position).Magnitude <= 30 then
+                game:GetService("ReplicatedStorage").Events.Pickup:FireServer(v)
+            end
+        end
+        end
+end
